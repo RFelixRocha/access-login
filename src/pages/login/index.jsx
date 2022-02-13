@@ -11,14 +11,12 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Logim', { email, password })
     login(email, password)
   }
 
   return  (
     <div id="login">
       <h4>Login do sistema</h4>
-      <p>{ String(authenticated) }</p>
       <form className="form" onSubmit={ handleSubmit }>
 
         <div className="field">
