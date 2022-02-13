@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { AuthContext } from '../../contexts/auth'
 import './styles.css'
 
 const Login = () => {
+
+  const { authenticated, login } = useContext(AuthContext)
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -9,11 +12,13 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('Logim', { email, password })
+    login(email, password)
   }
 
   return  (
     <div id="login">
       <h4>Login do sistema</h4>
+      <p>{ String(authenticated) }</p>
       <form className="form" onSubmit={ handleSubmit }>
 
         <div className="field">
@@ -41,4 +46,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export { Login }
